@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+    <title>Messahe page</title>
+
+
+{% block content %}
+
+    {% if user.is_authenticated and user.is_staff and user.is_superuser %}
+
+<div class="container">
+  <table class="table table-striped table-hover table-bordered p-5">
+  <thead class="table-dark">
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">First name</th>
+      <th scope="col">Last name</th>
+      <th scope="col">Phone number</th>
+      <th scope="col">Email</th>
+      <th scope="col">Message</th>
+    </tr>
+  </thead>
+  <tbody>
+  <h1>Records...</h1>
+  {% if info %}
+    {% for i in info %}
+    <tr>
+      <th>{{ i.id }}</th>
+      <td>{{ i.first_name }}</td>
+      <th>{{ i.last_name }}</th>
+      <td>{{ i.phone }}</td>
+      <td>{{ i.email }}</td>
+      <td>{{ i.message }}</td>
+    </tr>
+    {% endfor %}
+
+    {% endif %}
+ </div>
+
+  {% endif %}
+
+{% endblock content %}
+
+
